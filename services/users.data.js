@@ -2,8 +2,10 @@ import bcrypt from 'bcryptjs';
 
 export const USERS = [
     {
-        name: 'Juanito',
-        passwd: bcrypt.hashSync('1234'),
+        name: 'Fulanito',
+        passwd: '1234',
+        isAdmin: 'false',
+        watchedSeries: [],
     },
     {
         name: 'Pepito',

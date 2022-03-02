@@ -8,7 +8,7 @@ export function userCreator(modelName = 'users') {
         watchedSeries: [
             {
                 type: mongoose.Types.ObjectId,
-                ref: 'serie',
+                ref: 'series',
             },
         ],
     });

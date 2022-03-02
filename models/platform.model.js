@@ -1,18 +1,18 @@
 import mongoose from 'mongoose';
 
-export function platformCreator(modelName = 'platform') {
-    const userSchema = new mongoose.Schema({
+export function platformCreator(modelName = 'platforms') {
+    const platformSchema = new mongoose.Schema({
         name: { type: String, required: true, unique: true },
         pricePerMonth: { type: Number, required: true },
         series: [
             {
                 type: mongoose.Types.ObjectId,
-                ref: 'serie',
+                ref: 'series',
             },
         ],
     });
 
-    userSchema.set('toJSON', {
+    platformSchema.set('toJSON', {
         transform: (document, returnedObject) => {
             delete returnedObject.__v;
             delete returnedObject.passwd;
@@ -23,7 +23,7 @@ export function platformCreator(modelName = 'platform') {
     if (mongoose.default.models[modelName]) {
         Platform = mongoose.model(modelName);
     } else {
-        Platform = mongoose.model(modelName, userSchema);
+        Platform = mongoose.model(modelName, platformSchema);
     }
     return Platform;
 }
