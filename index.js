@@ -21,8 +21,8 @@ app.use(morgan('dev'));
 app.use(cors());
 
 //app.use('/items', usersRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
+app.use('/users/login', loginRouter);
+app.use('/users/register', registerRouter);
 app.use('/users', usersRouter);
 
 // eslint-disable-next-line no-unused-vars

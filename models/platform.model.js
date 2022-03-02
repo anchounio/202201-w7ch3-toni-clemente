@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
 
-export function userCreator(modelName = 'users') {
+export function platformCreator(modelName = 'platform') {
     const userSchema = new mongoose.Schema({
         name: { type: String, required: true, unique: true },
-        passwd: { type: String, required: true },
-        isAdmin: { type: Boolean, required: true },
-        watchedSeries: [
+        pricePerMonth: { type: Number, required: true },
+        series: [
             {
                 type: mongoose.Types.ObjectId,
                 ref: 'serie',
@@ -20,11 +19,11 @@ export function userCreator(modelName = 'users') {
         },
     });
 
-    let User;
+    let Platform;
     if (mongoose.default.models[modelName]) {
-        User = mongoose.model(modelName);
+        Platform = mongoose.model(modelName);
     } else {
-        User = mongoose.model(modelName, userSchema);
+        Platform = mongoose.model(modelName, userSchema);
     }
-    return User;
+    return Platform;
 }
